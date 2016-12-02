@@ -18,15 +18,15 @@ module.exports = {
 	},
 
 	newPosition: (req, res) => {
-			let role = req.body.role;
-			let companyName = req.body.companyName;
-
-			findPosition({role: role, companyName: companyName})
-				.then((match) => {
-					if(match){
-						res.send(match)
-					}
-				})
+		createPosition(req.body)
+		  then.((createdPosition) => {
+		  	if (createdPosition) {
+		  		res.json(createdPosition);
+		  	}		  	
+		  })
+		  .fail((error) => {
+		  	console.log(error);
+		  });
 	}
 
 }
