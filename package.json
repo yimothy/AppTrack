@@ -4,8 +4,8 @@
   "description": "This is an application to help Hack Reactor grads track jobs for the job search process.",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
