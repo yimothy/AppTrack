@@ -4,8 +4,8 @@
   "description": "This is an application to help Hack Reactor grads track jobs for the job search process.",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/ooOysters/AppTrack#readme",
   "dependencies": {
     "angular": "^1.5.9",
+    "angular-route": "^1.5.9",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "body-parser": "^1.15.2",
