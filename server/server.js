@@ -15,8 +15,9 @@ module.exports = function (app, express) {
 
 //connect to mongo database named 'AppTrack'
 //heroku, make project, mlab is available as heroku add-on
-var url = 'mongodb://localhost/AppTrack';
-mongoose.connect(url);
+
+//var url = 'mongodb://localhost/AppTrack';
+//mongoose.connect(url);
 
 //Display the index as homepage
 app.get('/', function(request, response) {
