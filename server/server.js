@@ -1,5 +1,7 @@
 // const mongodb = require('mongodb');
 // var mongoose = require('mongoose');
+
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -10,12 +12,14 @@ const app = express();
 //Setting up paths for frontend
 app.use(express.static(path.join(__dirname, '/../node_modules')));
 app.use(express.static(path.join(__dirname, '/../client')));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 //connect to mongo database named 'AppTrack'
 //heroku, make project, mlab is available as heroku add-on
 
-//const url = 'mongodb://localhost/AppTrack';
-//mongoose.connect(url);
+const url = 'mongodb://<dbuser>:<dbpassword>@ds119608.mlab.com:19608/apptrakdb';
+mongoose.connect(url);
 
 app.post('/form',(request, response) => {
 	console.log(request.body);
