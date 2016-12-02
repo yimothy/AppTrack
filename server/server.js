@@ -8,21 +8,14 @@ const bodyParser = require('body-parser');
 const app = express();
 
 //Setting up paths for frontend
-module.exports = (app, express) => {
-  app.use(express.static(path.join(__dirname, '/../node_modules')));
-  app.use(express.static(path.join(__dirname, '/../client')));
-};
+app.use(express.static(path.join(__dirname, '/../node_modules')));
+app.use(express.static(path.join(__dirname, '/../client')));
 
 //connect to mongo database named 'AppTrack'
 //heroku, make project, mlab is available as heroku add-on
 
 //const url = 'mongodb://localhost/AppTrack';
 //mongoose.connect(url);
-
-//Display the index as homepage
-app.get('/',(request, response) => {
-  response.sendfile('client/index.html');
-});
 
 app.post('/',(request, response) => {
 	console.log(request.body);
@@ -36,3 +29,5 @@ app.listen(port, (err) => {
   }
   console.log('Server is listening on port: ', port);
 })
+
+// module.exports = app;

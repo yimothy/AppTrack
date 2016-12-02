@@ -1,5 +1,5 @@
 angular.module('AppTracker', [
-  'FormController',
+  'Form',
   'ngRoute'
 ])
 .config(function($routeProvider, $httpProvider) {
