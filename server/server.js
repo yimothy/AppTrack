@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, '/../client')));
 //const url = 'mongodb://localhost/AppTrack';
 //mongoose.connect(url);
 
-app.post('/',(request, response) => {
+app.post('/form',(request, response) => {
 	console.log(request.body);
 })
 

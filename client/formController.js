@@ -13,15 +13,13 @@ angular.module('Form', [])
         console.log(resp);
       })
     }
-  $scope.log = function() {
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>printing");
-  }
   })
 .factory('HttpService', function($http){
   let postData = function(data) {
     console.log('hello')
     return $http.post('/', data)
     .then(function(resp) {
+      console.log("data, resp", data, resp)
       return resp
     })
   }
