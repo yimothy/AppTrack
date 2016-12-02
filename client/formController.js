@@ -13,7 +13,7 @@ angular.module('Form', [])
     }
   })
 .factory('HttpService', function($http){
-  var postData = function(data) {
+  let postData = function(data) {
     return $http.post('/', data)
     .then(function(resp) {
       return resp
