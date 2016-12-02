@@ -2,8 +2,9 @@
   "name": "apptrack",
   "version": "1.0.0",
   "description": "This is an application to help Hack Reactor grads track jobs for the job search process.",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
+    "start": "node server/server.js",
     "test": "npm test"
   },
   "repository": {
