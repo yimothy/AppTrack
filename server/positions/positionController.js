@@ -18,11 +18,11 @@ module.exports = {
 	},
 
 	newPosition: (req, res) => {
-		createPosition(req.body)
+		createPosition(req.body.data)
 		  then.((createdPosition) => {
 		  	if (createdPosition) {
 		  		res.json(createdPosition);
-		  	}		  	
+		  	}
 		  })
 		  .fail((error) => {
 		  	console.log(error);
