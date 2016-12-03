@@ -15,32 +15,32 @@
     <form>
       <input type="date" placeholder="Job Search Start Date" ng-model="data.startDate">
       <h1>Outreach</h1>
-      <input type="text" placeholder="Company Name" ng-model=data.outreach.companyName>
-      <input type="text" placeholder="Role" ng-model="data.outreach.role">
+      <input type="text" placeholder="Company Name" ng-model=data.companyName>
+      <input type="text" placeholder="Role" ng-model="data.role">
       <input type="text" placeholder="CoverLetter" ng-model="coverLetter">
-      <input type="text" placeholder="Job Description" ng-model="data.outreach.jobDescription">
-      <input type="text" placeholder="Applied Through" ng-model="data.outreach.appliedThrough">
-      <input type="text" placeholder="Contact Name" ng-model="data.outreach.contactName">
-      <input type="tel" placeholder="Contact Phone" ng-model="data.outreach.contactPhone">
-      <input type="email" placeholder="Contact Email" ng-model="data.outreach.contactEmail">
-      <input type="text" placeholder="Contact Type" ng-model="data.outreach.contactType">
-      <input type="date" placeholder="Date Applied" ng-model="data.outreach.dateApplied">
-      <input type="number" placeholder="LinkedIn Connections" ng-model="data.outreach.linkedinConnections">
-      <input type="date" placeholder="Date of Last Direct Contact" ng-model="data.outreach.dateOfLastContact">
-      <input type="text" placeholder="Reply Received" ng-model="data.outreach.replyReceived">
+      <input type="text" placeholder="Job Description" ng-model="data.jobDescription">
+      <input type="text" placeholder="Applied Through" ng-model="data.appliedThrough">
+      <input type="text" placeholder="Contact Name" ng-model="data.contactName">
+      <input type="tel" placeholder="Contact Phone" ng-model="data.contactPhone">
+      <input type="email" placeholder="Contact Email" ng-model="data.contactEmail">
+      <input type="text" placeholder="Contact Type" ng-model="data.contactType">
+      <input type="date" placeholder="Date Applied" ng-model="data.dateApplied">
+      <input type="number" placeholder="LinkedIn Connections" ng-model="data.linkedinConnections">
+      <input type="date" placeholder="Date of Last Direct Contact" ng-model="data.dateOfLastContact">
+      <input type="text" placeholder="Reply Received" ng-model="data.replyReceived">
       <h1>Stage 1</h1>
-      <input type="text" placeholder="Scheduled or Completed?" ng-model="data.stage.scheduledStatus">
-      <input type="date" placeholder="Date Completed" ng-model="data.stage.interviewCompletedDate">
-      <input type="text" placeholder="Primary Interviewer Type" ng-model="data.stage.interviewerType">
-      <input type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="data.stage.dateOfLastFollowUp">
-      <input type="text" placeholder="Reply Received" ng-model="data.stage.interviewReplyReceived">
+      <input type="text" placeholder="Scheduled or Completed?" ng-model="data.scheduledStatus">
+      <input type="date" placeholder="Date Completed" ng-model="data.interviewCompletedDate">
+      <input type="text" placeholder="Primary Interviewer Type" ng-model="data.interviewerType">
+      <input type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="data.dateOfLastFollowUp">
+      <input type="text" placeholder="Reply Received" ng-model="data.interviewReplyReceived">
 
       <h1>Offer</h1>
-      <input type="number" placeholder="Contract Time (in # of Months)" ng-model="data.offer.contractTime">
-      <input type="number" placeholder="Initial Comp ($)" ng-model="data.offer.initialComp">
-      <input type="text" placeholder="Negotiated?(Y/N)" ng-model="data.offer.negotiated">
-      <input type="number" placeholder="Final Comp ($)" ng-model="data.offer.finalComp">
-      <input type="text" placeholder="Accepted or Rejected?" ng-model="data.offer.acceptReject">
+      <input type="number" placeholder="Contract Time (in # of Months)" ng-model="data.contractTime">
+      <input type="number" placeholder="Initial Comp ($)" ng-model="data.initialComp">
+      <input type="text" placeholder="Negotiated?(Y/N)" ng-model="data.negotiated">
+      <input type="number" placeholder="Final Comp ($)" ng-model="data.finalComp">
+      <input type="text" placeholder="Accepted or Rejected?" ng-model="data.acceptReject">
       <hr>
       <button ng-click='submitForm()'>Add</button>
     </form>
