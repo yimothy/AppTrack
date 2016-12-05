@@ -34,7 +34,7 @@ console.log(url)
 
 app.post('/form', function(req,res){
 
-	new Position({	
+	new Position({
 	startDate: req.body.data.startDate,
 	companyName: req.body.data.companyName,
 	role: req.body.data.role,
@@ -57,8 +57,10 @@ app.post('/form', function(req,res){
 });
 
 app.get('/form', function(req,res){
-	console.log(res.body.data)
-	Position.find();
+    console.log("hitting get")
+    Position.find(function(err, positions) {
+    res.send(positions);
+  });
 })
 // app.post('/signup', Users.signupUser);
 
