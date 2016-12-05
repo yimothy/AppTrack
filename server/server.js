@@ -13,11 +13,11 @@ const positionController = require('./positions/positionController.js')
 var app = express();
 
 //Setting up paths for frontend
-app.use(session({
- secret: 'shhh, it\'s a secret',
- resave: false,
- saveUninitialized: true
-}));
+// app.use(session({
+//  secret: 'shhh, it\'s a secret',
+//  resave: false,
+//  saveUninitialized: true
+// }));
 
 app.use(express.static(path.join(__dirname, '/../node_modules')));
 app.use(express.static(path.join(__dirname, '/../client')));
@@ -33,7 +33,7 @@ console.log(url)
 
 
 app.post('/form', positionController.newPosition);
-app.post('/signup', Users.signupUser);
+// app.post('/signup', Users.signupUser);
 
 
 //set up the server on env.PORT or 8080

@@ -7,9 +7,9 @@ const findAllPositions = Q.nbind(Position.find, Position);
 
 module.exports = {
 
-	testInsert: () {
-		// Position.insert
-	}
+	// testInsert: () {
+	// 	// Position.insert
+	// }
 
 	allPositions: (req, res) => {
 
@@ -17,7 +17,7 @@ module.exports = {
 			.then((positions) => {
 				res.json(positions);
 			})
-			.fail((err) => { 
+			.fail((err) => {
 				console.log(err)
 			});
 	},
