@@ -7,26 +7,34 @@ const findAllPositions = Q.nbind(Position.find, Position);
 
 module.exports = {
 
+	// testInsert: () {
+	// 	// Position.insert
+	// }
+
 	allPositions: (req, res) => {
+
 		findAllPositions({})
 			.then((positions) => {
 				res.json(positions);
 			})
-			.fail((err) => { 
+			.fail((err) => {
 				console.log(err)
 			});
 	},
 
 	newPosition: (req, res) => {
-			let role = req.body.role;
-			let companyName = req.body.companyName;
 
-			findPosition({role: role, companyName: companyName})
-				.then((match) => {
-					if(match){
-						res.send(match)
-					}
-				})
+		createPosition(req.body.data)
+
+		  .then((createdPosition) => {
+		  	if (createdPosition) {
+		  		console.log("request", req.body.data);
+		  		res.json(createdPosition);
+		  	}
+		  })
+		  .fail((error) => {
+		  	console.log(error);
+		  });
 	}
 
 }

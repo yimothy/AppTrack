@@ -3,83 +3,71 @@
 <head>
 <title>AppTrack</title>
 <script
-  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js">
+  src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.js">
+</script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js">
 </script>
 </head>
 
-<body ng-app>
-  <input type="date" placeholder="Job Search Start Date" ng-model="startDate">
-  <h1>Outreach</h1>
-  <input type="text" placeholder="Company Name" ng-model="companyName">
-  <input type="text" placeholder="Role" ng-model="role">
-  <!-- <input type="text" placeholder="CoverLetter" ng-model="coverLetter"> -->
-  <input type="text" placeholder="Job Description" ng-model="jobDescription">
-  <input type="text" placeholder="Applied Through" ng-model="appliedThrough">
-  <input type="text" placeholder="Contact Name" ng-model="contactName">
-  <input type="tel" placeholder="Contact Phone" ng-model="contactPhone">
-  <input type="email" placeholder="Contact Email" ng-model="contactEmail">
-  <input type="text" placeholder="Contact Type" ng-model="contactType">
-  <input type="date" placeholder="Date Applied" ng-model="dateApplied">
-  <input type="number" placeholder="LinkedIn Connections" ng-model="linkedinConnections">
-  <input type="date" placeholder="Date of Last Direct Contact" ng-model="dateOfLastContact">
-  <input type="text" placeholder="Reply Received" ng-model="replyReceived">
-  <h1>Stage 1</h1>
-  <input type="text" placeholder="Scheduled or Completed?" ng-model="scheduledStatus">
-  <input type="date" placeholder="Date Completed" ng-model="interviewCompletedDate">
-  <input type="text" placeholder="Primary Interviewer Type" ng-model="interviewerType">
-  <input type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="dateOfLastFollowUp">
-  <input type="text" placeholder="Reply Received" ng-model="interviewReplyReceived">
+<body ng-app="AppTracker">
+  <div ng-controller="FormController">
+    <form>
+      <input type="date" placeholder="Job Search Start Date" ng-model="data.startDate">
+      <h1>Outreach</h1>
+      <input type="text" placeholder="Company Name" ng-model=data.companyName>
+      <input type="text" placeholder="Role" ng-model="data.role">
+      <input type="text" placeholder="CoverLetter" ng-model="coverLetter">
+      <input type="text" placeholder="Job Description" ng-model="data.jobDescription">
+      <input type="text" placeholder="Applied Through" ng-model="data.appliedThrough">
+      <input type="text" placeholder="Contact Name" ng-model="data.contactName">
+      <input type="tel" placeholder="Contact Phone" ng-model="data.contactPhone">
+      <input type="email" placeholder="Contact Email" ng-model="data.contactEmail">
+      <input type="text" placeholder="Contact Type" ng-model="data.contactType">
+      <input type="date" placeholder="Date Applied" ng-model="data.dateApplied">
+      <input type="number" placeholder="LinkedIn Connections" ng-model="data.linkedinConnections">
+      <input type="date" placeholder="Date of Last Direct Contact" ng-model="data.dateOfLastContact">
+      <input type="text" placeholder="Reply Received" ng-model="data.replyReceived">
+      <h1>Stage 1</h1>
+      <input type="text" placeholder="Scheduled or Completed?" ng-model="data.scheduledStatus">
+      <input type="date" placeholder="Date Completed" ng-model="data.interviewCompletedDate">
+      <input type="text" placeholder="Primary Interviewer Type" ng-model="data.interviewerType">
+      <input type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="data.dateOfLastFollowUp">
+      <input type="text" placeholder="Reply Received" ng-model="data.interviewReplyReceived">
 
-  <h1>Offer</h1>
-  <input type="number" placeholder="Contract Time (in # of Months)" ng-model="contractTime">
-  <input type="number" placeholder="Initial Comp ($)" ng-model="initialComp">
-  <input type="text" placeholder="Negotiated?(Y/N)" ng-model="negotiated">
-  <input type="number" placeholder="Final Comp ($)" ng-model="finalComp">
-  <input type="text" placeholder="Accepted or Rejected?" ng-model="acceptReject">
-  <hr>
-  <button>Submit</button>
-</body>
+      <h1>Offer</h1>
+      <input type="number" placeholder="Contract Time (in # of Months)" ng-model="data.contractTime">
+      <input type="number" placeholder="Initial Comp ($)" ng-model="data.initialComp">
+      <input type="text" placeholder="Negotiated?(Y/N)" ng-model="data.negotiated">
+      <input type="number" placeholder="Final Comp ($)" ng-model="data.finalComp">
+      <input type="text" placeholder="Accepted or Rejected?" ng-model="data.acceptReject">
+      <hr>
+      <button ng-click='submitForm()'>Add</button>
+    </form>
+  </div>
 
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Joseph’s Magical Angular Todo App
-<html>
-  <head>
-    <title>To-Do</title>
-    <script
-      src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js">
-    </script>
-  </head>
-  <body ng-app>
-    <div class="container" ng-init="todos = []">
-      <h1>To-do:</h1>
-      <input type="text" placeholder="New Item" ng-model="newTodo">
-      <button ng-click="todos.push(newTodo); newTodo = ''">Add</button>
-      <br><br>
-      <input type="text" placeholder="Search" ng-model="search">
-      <ol>
-        <li
-          ng-repeat="todo in todos | filter:search track by $index"
-          ng-click="todos.splice($index, 1)">
-          {{ todo }}
-        </li>
-      </ol>
+    <div ng-controller="FormController">
+      <form>
+        <h1>Get Results real quick</h1>
+        <button ng-click="getJobData()">Get</button>
+        <ul ng-repeat='result in results' ng-model='results'>
+          <li>{{result}}</li>
+        </ul>
+      </form>
     </div>
-    <hr>
-  </body>
-</html> -->
+
+    <!-- <div ng-controller="FormController">
+      <form>
+        <h1>Get One Job</h1>
+        <input type="text" ng-model="role">
+        <button ng-click="getSingleJob()">Get</button>
+          <p>{{job}}</p>
+      </form>
+    </div> -->
+
+
+
+</body>
+<script src="app.js"></script>
+<script src="FormController.js"></script>
+</html>
