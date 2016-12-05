@@ -7,7 +7,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const positionController = require('./positions/positionController.js')
+const Position = require('./positions/positionModel.js')
 
 //call express as app
 var app = express();
@@ -32,7 +32,34 @@ mongoose.connect(url);
 console.log(url)
 
 
-app.post('/form', positionController.newPosition);
+app.post('/form', function(req,res){
+
+	new Position({	
+	startDate: req.body.data.startDate,
+	companyName: req.body.data.companyName,
+	role: req.body.data.role,
+	jobDescription: req.body.data.jobDescription,
+	appliedThrough: req.body.data.appliedThrough,
+	contactName: req.body.data.contactName,
+	contactPhone: req.body.data.contactPhone,
+	contactEmail: req.body.data.contactEmail,
+	contactType: req.body.data.contactType,
+	dateApplied: req.body.data.dateApplied,
+	dateOfLastContact: req.body.data.dateOfLastContact,
+	replyReceived: req.body.data.replyReceived,
+	stages: req.body.data.stages,
+	contractTime: req.body.data.contractTime,
+	initialComp: req.body.data.initialComp,
+	negotiated: req.body.data.negotiated,
+	finalComp: req.body.data.finalComp,
+	acceptReject: req.body.data.acceptReject})
+	  .save();
+});
+
+app.get('/form', function(req,res){
+	console.log(res.body.data)
+	Position.find();
+})
 // app.post('/signup', Users.signupUser);
 
 
