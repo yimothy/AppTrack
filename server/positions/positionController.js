@@ -7,7 +7,12 @@ const findAllPositions = Q.nbind(Position.find, Position);
 
 module.exports = {
 
+	testInsert: () {
+		// Position.insert
+	}
+
 	allPositions: (req, res) => {
+
 		findAllPositions({})
 			.then((positions) => {
 				res.json(positions);
@@ -18,9 +23,12 @@ module.exports = {
 	},
 
 	newPosition: (req, res) => {
+
 		createPosition(req.body.data)
-		  then.((createdPosition) => {
+
+		  .then((createdPosition) => {
 		  	if (createdPosition) {
+		  		console.log("request", req.body.data);
 		  		res.json(createdPosition);
 		  	}
 		  })
