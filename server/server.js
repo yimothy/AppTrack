@@ -8,6 +8,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const positionController = require('./positions/positionController.js')
+const Position = require('./positions/positionModel.js')
 
 //call express as app
 var app = express();
@@ -34,7 +35,12 @@ console.log(url)
 
 app.post('/form', positionController.newPosition);
 // app.post('/signup', Users.signupUser);
-
+app.get('/form', function(req,res){
+    console.log("hitting get")
+    Position.find(function(err, positions) {
+    res.send(positions);
+  });
+})
 
 //set up the server on env.PORT or 8080
 const port = process.env.PORT || 8080;
