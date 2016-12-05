@@ -7,18 +7,11 @@ const PositionSchema = new mongoose.Schema({
 	jobDescription: String,
 	appliedThrough: String,
 	contactName: String,
-	contactPhone: Number,
+	contactPhone: String,
 	contactEmail: String,
 	contactType: String,
 	dateApplied: Date,
 	dateOfLastContact: Date,
 	replyReceived: Boolean,
-	stages: Array,
-	contractTime: Number,
-	initialComp: Number,
-	negotiated: Boolean,
-	finalComp: Number,
-	acceptReject: Boolean
+	scheduled
 })
-
-module.exports = mongoose.model('Position', PositionSchema);
