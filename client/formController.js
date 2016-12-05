@@ -3,9 +3,10 @@ angular.module('Form', [])
   $scope.data = {};
 
   $scope.submitForm = function() {
-    console.log(">>>>>>>>>>>>>line 9, submitForm, preHTTP servicePOSTADATA calls", $scope.data)
+    console.log($scope.data)
+
     HttpService.postData({data: $scope.data})
-    console.log("+++++++++++++++line 9, submitForm, inHTTP", $scope.data)
+
       .then(function(resp) {
         console.log(resp);
       })
@@ -13,9 +14,10 @@ angular.module('Form', [])
   })
 .factory('HttpService', function($http){
   let postData = function(data) {
-    console.log('hello')
-    return $http.post('/', data)
+
+    return $http.post('/form', data)
     .then(function(resp) {
+
       console.log("data, resp", data, resp)
       return resp
     })
