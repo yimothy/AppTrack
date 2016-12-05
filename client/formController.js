@@ -1,9 +1,6 @@
 angular.module('Form', [])
 .controller('FormController', function($scope, HttpService){
   $scope.data = {};
-  $scope.data.outreach = {};
-  $scope.data.stage = {};
-  $scope.data.offers = {};
 
   $scope.submitForm = function() {
     console.log(">>>>>>>>>>>>>line 9, submitForm, preHTTP servicePOSTADATA calls", $scope.data)
