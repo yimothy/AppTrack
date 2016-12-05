@@ -10,7 +10,7 @@ angular.module('Form', [])
 
     HttpService.postData({"data": $scope.data})
       .then(function(resp) {
-
+        console.log(resp)
       })
     }
 
@@ -21,19 +21,18 @@ angular.module('Form', [])
         $scope.results = res.data;
         })
 
-            // console.log("result[0].data.jobDescription", res.data)
     }
 
-    // $scope.getSingleJob = function($scope.role) {
-    //   console.log($scope.role);
-    //
-    //   HttpService.getJob({"role": $scope.role})
-    //     .then(function(resp) {
-    //       console.log(resp)
-    //       $scope.results = resp.data;
-    //     })
-    //
-    // }
+    $scope.getSingleJob = function() {
+      console.log($scope.role);
+
+      HttpService.getJob({"role": $scope.role})
+        .then(function(resp) {
+          console.log(resp)
+          $scope.job = resp.data;
+        })
+
+    }
 
   })
 .factory('HttpService', function($http){
@@ -55,18 +54,18 @@ angular.module('Form', [])
 
   }
 
-//   let getJob = function(role) {
-//   //vvvv this only takes one param here
-//   return $http.get('/form/' + role)
-//   .then(function(resp){
-//     return resp;
-//   })
-// }
+  let getJob = function(role) {
+  //vvvv this only takes one param here
+  return $http.get('/form/' + role)
+  .then(function(res){
+    return res;
+  })
+}
 
 
   return {
     postData: postData,
     getData: getData,
-    // getJob: getJob
+    getJob: getJob
   }
 })
