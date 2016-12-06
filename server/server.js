@@ -76,27 +76,20 @@ app.post('/signup', function(req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
 
-	// User.find({ username: username },
-		// function(err, user) {
-		// 	if (!user) {
+	User.find({ username: username },
+		function(err, user) {
+			if (!user) {
 				var newUser = new User({
 					username: username,
 					password: password
 				});
 
-				newUser.save(
-				// 	function(err, newUser) {
-				// 	if (err) {
-				// 		res.status(500).send(err);
-				// 	}
-				// 	createSession(req, res, newUser);
-				// }
-			);
-			// } else {
-			// 	console.log('Account already exists');
-			// }
-		// }
-	// );
+				newUser.save();
+			} else {
+				console.log('Account already exists');
+			}
+		}
+	);
 });
 
 

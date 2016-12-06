@@ -5,7 +5,7 @@ angular.module('SignUp', [])
 
   $scope.submitCredentials = function() {
 
-    HttpService.postData({"username": $scope.username, "password": $scope.password})
+    HttpServiceLogin.postData({"username": $scope.username, "password": $scope.password})
       .then(function(resp) {
         console.log(resp)
         $scope.username = '';
