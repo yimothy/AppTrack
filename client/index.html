@@ -48,20 +48,33 @@
     </form>
   </div>
 
-    <div class="search-one" ng-controller="FormController">
-      <form>
-        <h1>Get One Job</h1>
-        <input type="text" ng-model="role">
-        <button ng-click="getSingleJob()">Get</button>
-          <p>{{job}}</p>
-      </form>
-    </div>
+  <div class="search-one" ng-controller="FormController">
+       <form>
+         <h1>Get One Job</h1>
+         <input type="text" placeholder='Search Company' ng-model="searchText">
+         <button ng-click="getSingleJob()">Get</button>
+           <ol>
+             <li
+
+             ng-repeat="thejob in job | filter:searchText">
+             <div class="card">{{thejob.role}}
+               <div class="field">Company: {{thejob.companyName}}</div>
+               <div class="field">Role: {{thejob.role}}</div>
+               <div class="field">Job Description: {{thejob.jobDescription}}</div>
+             </div>
+
+           </li>
+           </ol>
+
+
+       </form>
+     </div>
 
     <div ng-controller="FormController">
       <form>
         <h1>Get Results real quick</h1>
         <button ng-click="getJobData()">Get</button>
-        <ul ng-repeat='result in results' ng-model='results'>
+        <ul ng-repeat='result in results track by $index' ng-model='results'>
           <div class="list-item"><li class="card">
             <div class="field">Company: {{result.companyName}}</div>
             <div class="field">Role: {{result.role}}</div>
@@ -83,6 +96,7 @@
           </li>
           <div class="add-stage" ng-model="stageattrs" ng-click="pushToStages()">Add Stage
             <input type="text" placeholder="Scheduled or Completed?" ng-model="stageattrs.scheduledStatus">
+            <input type="number" placeholder="index" ng-model="stageattrs.index">
             <input type="date" placeholder="Date Completed" ng-model="stageattrs.interviewCompletedDate">
             <input type="text" placeholder="Primary Interviewer Type" ng-model="stageattrs.interviewerType">
             <input type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp">
