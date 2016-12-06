@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="./styles/style.css" rel="stylesheet" type="text/css">
 <title>AppTrack</title>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.js">
@@ -8,6 +9,7 @@
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js">
 </script>
+
 </head>
 
 <body ng-app="AppTracker">
@@ -46,17 +48,7 @@
     </form>
   </div>
 
-    <div ng-controller="FormController">
-      <form>
-        <h1>Get Results real quick</h1>
-        <button ng-click="getJobData()">Get</button>
-        <ul ng-repeat='result in results' ng-model='results'>
-          <li>{{result}}</li>
-        </ul>
-      </form>
-    </div>
-
-    <div ng-controller="FormController">
+    <div class="search-one" ng-controller="FormController">
       <form>
         <h1>Get One Job</h1>
         <input type="text" ng-model="role">
@@ -64,6 +56,44 @@
           <p>{{job}}</p>
       </form>
     </div>
+
+    <div ng-controller="FormController">
+      <form>
+        <h1>Get Results real quick</h1>
+        <button ng-click="getJobData()">Get</button>
+        <ul ng-repeat='result in results' ng-model='results'>
+          <div class="list-item"><li class="card">
+            <div class="field">Company: {{result.companyName}}</div>
+            <div class="field">Role: {{result.role}}</div>
+            <div class="field">Job Description: {{result.jobDescription}}</div>
+            <div class="field">Applied through: {{result.appliedThrough}}</div>
+            <div class="field">Contact Name: {{result.contactName}}</div>
+            <div class="field">Contact Phone: {{result.contactPhone}}</div>
+            <div class="field">Contact Email: {{result.contactEmail}}</div>
+            <div class="field">Contact Type: {{result.contactType}}</div>
+            <div class="field">Date Applied: {{result.dateApplied}}</div>
+            <div class="field">Last Contacted: {{result.dateOfLastContact}}</div>
+            <div class="field">Reply Received: {{result.replyReceived}}</div>
+            <!-- <div class="field">Stages: {{result.stages}}</div> -->
+            <div class="field">Contract Duration: {{result.contractTime}}</div>
+            <div class="field">Intial Compensation: {{result.initialComp}}</div>
+            <div class="field">Negotiated?: {{result.negotiated}}</div>
+            <div class="field">Final Comp?: {{result.finalComp}}</div>
+            <div class="field">Accept/Reject?: {{result.acceptReject}}</div>
+          </li>
+          <div class="add-stage" ng-model="stageattrs" ng-click="pushToStages()">Add Stage
+            <input type="text" placeholder="Scheduled or Completed?" ng-model="stageattrs.scheduledStatus">
+            <input type="date" placeholder="Date Completed" ng-model="stageattrs.interviewCompletedDate">
+            <input type="text" placeholder="Primary Interviewer Type" ng-model="stageattrs.interviewerType">
+            <input type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp">
+            <input type="text" placeholder="Reply Received" ng-model="stageattrs.interviewReplyReceived">
+            <input type="submit">
+          </div>
+        </div>
+        </ul>
+      </form>
+    </div>
+
 
 
 
