@@ -8,7 +8,6 @@ angular.module('Form', [])
 
   $scope.submitForm = function() {
 
-
     HttpService.postData({"data": $scope.data})
       .then(function(resp) {
         console.log(resp)
@@ -36,8 +35,9 @@ angular.module('Form', [])
     }
 
     $scope.pushToStages = function() {
-      console.log("$scope.results, $scope.results.$index within push to stages", $scope.results, $scope.results.index)
-      HttpService.putStageData({"id": $scope.data._id, "stages": $scope.stageattrs})
+      console.log("$scope.results[0]._id within push to stages", $scope.results[0]._id)
+      // var stageId =
+      HttpService.putStageData({"id": $scope.stageattrs.index, "stages": $scope.stageattrs})
       .then(function(resp) {
         console.log(resp)
       })
