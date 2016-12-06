@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AppTrack</title>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.js">
+</script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js">
+</script>
+</head>
+
+<body ng-app="AppTracker">
+  <div ng-controller="SignupController">
+    <form>
+      <input type="text" placeholder="Username" ng-model="username">
+      <input type="text" placeholder="Password" ng-model="password">
+      <button ng-click='submitCredentials()'>SignUp</button>
+    </form>
+  </div>
+
+
+</body>
+<script src="app.js"></script>
+<script src="signup.js"></script>
+<script src="FormController.js"></script>
+</html>
