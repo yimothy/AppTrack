@@ -61,7 +61,7 @@
       <form>
         <h1>Get Results real quick</h1>
         <button ng-click="getJobData()">Get</button>
-        <ul ng-repeat='result in results' ng-model='results'>
+        <ul ng-repeat='result in results track by $index' ng-model='results'>
           <div class="list-item"><li class="card">
             <div class="field">Company: {{result.companyName}}</div>
             <div class="field">Role: {{result.role}}</div>
