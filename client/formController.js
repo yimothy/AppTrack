@@ -1,12 +1,14 @@
 angular.module('Form', [])
 .controller('FormController', function($scope, HttpService){
   $scope.data = {};
+  $scope.data.stages = [];
   $scope.role = {};
   $scope.results = {};
   $scope.job = {};
   $scope.stageattrs = {};
 
   $scope.submitForm = function() {
+
 
     HttpService.postData({"data": $scope.data})
       .then(function(resp) {
@@ -35,12 +37,7 @@ angular.module('Form', [])
     }
 
     $scope.pushToStages = function() {
-      console.log("$scope.results[0]._id within push to stages", $scope.results[0]._id)
-      // var stageId =
-      HttpService.putStageData({"id": $scope.stageattrs.index, "stages": $scope.stageattrs})
-      .then(function(resp) {
-        console.log(resp)
-      })
+      $scope.data.stages.push($scope.stageattrs)
     }
 
   })
@@ -49,6 +46,7 @@ angular.module('Form', [])
 
     return $http.post('/form', data)
     .then(function(resp) {
+
 
       return resp
     })
@@ -64,28 +62,16 @@ angular.module('Form', [])
 
   let getJob = function(role) {
   //vvvv this only takes one param here
-    return $http.get('/form/' + role)
-    .then(function(res){
-      return res;
-    })
-  }
-
-  let putStageData = function(stage) {
-    console.log("Stage from within PutStageData HTTP service", stage);
-    return $http.put('/form/' + stage.id, stage)
-    .then(function(res) {
-      console.log(res)
-      return res;
-    })
-
-
-  }
+  return $http.get('/form/' + role)
+  .then(function(res){
+    return res;
+  })
+}
 
 
   return {
     postData: postData,
     getData: getData,
-    getJob: getJob,
-    putStageData: putStageData
+    getJob: getJob
   }
 })
