@@ -62,6 +62,13 @@ app.get('/form', function(req,res){
     res.send(positions);
   });
 })
+app.get('/form/:role', function(req,res){
+    console.log("hitting get")
+    Position.find(function(err, job) {
+    res.send(job);
+  });
+})
+
 // app.post('/signup', Users.signupUser);
 
 
