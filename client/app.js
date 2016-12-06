@@ -1,6 +1,5 @@
 angular.module('AppTracker', [
   'Form',
-  'Update',
   'SignUp',
   'ngRoute'
 ])

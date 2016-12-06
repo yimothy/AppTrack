@@ -9,15 +9,19 @@
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js">
 </script>
-
 </head>
-
 <body ng-app="AppTracker">
   <div ng-controller="FormController">
     <form>
       <input type="date" placeholder="Job Search Start Date" ng-model="data.startDate">
       <h1>Outreach</h1>
-      <input type="text" placeholder="Company Name" ng-model=data.companyName>
+      <div class="field" ng-hide="editorEnabled">Company: {{result.companyName}}
+        <button ng-click="enableEditor($index)">Edit</button>
+      </div>
+      <div ng-show="editorEnabled">
+        <input ng-model="editableCompanyName" ng-show="editorEnabled">
+        <button ng-click="save($index)">Save</button>
+      </div>
       <input type="text" placeholder="Role" ng-model="data.role">
       <input type="text" placeholder="CoverLetter" ng-model="coverLetter">
       <input type="text" placeholder="Job Description" ng-model="data.jobDescription">
@@ -30,13 +34,6 @@
       <input type="number" placeholder="LinkedIn Connections" ng-model="data.linkedinConnections">
       <input type="date" placeholder="Date of Last Direct Contact" ng-model="data.dateOfLastContact">
       <input type="text" placeholder="Reply Received" ng-model="data.replyReceived">
-      <h1>Stage 1</h1>
-      <input type="text" placeholder="Scheduled or Completed?" ng-model="data.scheduledStatus">
-      <input type="date" placeholder="Date Completed" ng-model="data.interviewCompletedDate">
-      <input type="text" placeholder="Primary Interviewer Type" ng-model="data.interviewerType">
-      <input type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="data.dateOfLastFollowUp">
-      <input type="text" placeholder="Reply Received" ng-model="data.interviewReplyReceived">
-
       <h1>Offer</h1>
       <input type="number" placeholder="Contract Time (in # of Months)" ng-model="data.contractTime">
       <input type="number" placeholder="Initial Comp ($)" ng-model="data.initialComp">
@@ -47,29 +44,23 @@
       <button ng-click='submitForm()'>Add</button>
     </form>
   </div>
-
-  <div class="search-one" ng-controller="FormController">
+  <!-- <div class="search-one" ng-controller="FormController">
        <form>
          <h1>Get One Job</h1>
          <input type="text" placeholder='Search Company' ng-model="searchText">
          <button ng-click="getSingleJob()">Get</button>
            <ol>
              <li
-
              ng-repeat="thejob in job | filter:searchText">
              <div class="card">{{thejob.role}}
                <div class="field">Company: {{thejob.companyName}}</div>
                <div class="field">Role: {{thejob.role}}</div>
                <div class="field">Job Description: {{thejob.jobDescription}}</div>
              </div>
-
            </li>
            </ol>
-
-
        </form>
-     </div>
-
+     </div> -->
     <div ng-controller="FormController">
       <form>
         <h1>Get Results real quick</h1>
@@ -79,7 +70,7 @@
             <div class="field">Company: {{result.companyName}}</div>
             <div class="field">Role: {{result.role}}</div>
             <div class="field">Job Description: {{result.jobDescription}}</div>
-            <div class="field">Applied through: {{result.ayppliedThrough}}</div>
+            <div class="field">Applied through: {{result.appliedThrough}}</div>
             <div class="field">Contact Name: {{result.contactName}}</div>
             <div class="field">Contact Phone: {{result.contactPhone}}</div>
             <div class="field">Contact Email: {{result.contactEmail}}</div>
@@ -93,24 +84,31 @@
             <div class="field">Negotiated?: {{result.negotiated}}</div>
             <div class="field">Final Comp?: {{result.finalComp}}</div>
             <div class="field">Accept/Reject?: {{result.acceptReject}}</div>
+            <div class="field">_ID: {{result._id}}</div>
           </li>
-          <div class="add-stage" ng-model="stageattrs" ng-click="pushToStages()">Add Stage
-            <input type="text" placeholder="Scheduled or Completed?" ng-model="stageattrs.scheduledStatus">
-            <input type="number" placeholder="index" ng-model="stageattrs.index">
+          <div class="stage-name" ng-repeat="stage in results[$index].stages" ng-model="results">
+            <ul>
+              <li>
+            <div class="field"><strong>Interview Scheduled?: </strong>{{stage.stages.scheduledStatus}}</div>
+            <div class="field"><strong>Date Completed: </strong>{{stage.stages.interviewCompletedDate}}</div>
+            <div class="field"><strong>Primary Interviewer Type: </strong>{{stage.stages.interviewerType}}</div>
+            <div class="field"><strong>Date of Thank You or Last Follow Up: </strong>{{stage.stages.dateOfLastFollowUp}}</div>
+            <div class="field"><strong>Reply Received: </strong>{{stage.stages.interviewReplyReceived}}</div>
+              </li>
+            </ul>
+          </div>
+          <div class="add-stage">Add Stage
+            <input type="text" placeholder="Interview Scheduled?" ng-model="stageattrs.scheduledStatus">
             <input type="date" placeholder="Date Completed" ng-model="stageattrs.interviewCompletedDate">
             <input type="text" placeholder="Primary Interviewer Type" ng-model="stageattrs.interviewerType">
             <input type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp">
             <input type="text" placeholder="Reply Received" ng-model="stageattrs.interviewReplyReceived">
-            <input type="submit">
+            <input type="submit" ng-click="pushToStages($index)">
           </div>
         </div>
         </ul>
       </form>
     </div>
-
-
-
-
 </body>
 <script src="app.js"></script>
 <script src="signup.js"></script>

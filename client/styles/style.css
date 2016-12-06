@@ -10,24 +10,29 @@
   padding: 15px;
   font-weight: bold;
 }
-
 .search-one {
     margin: 20px 0 0 50px;
     display: inline-block;
 }
-
-.add-stage {
+.list-item {
+    width: 2100px;
+}
+.stage-name {
   width: 300px;
   height: 200px;
-  background-color:lightblue;
+  background-color:lightgreen;
   font: 10px helvetica, sans-serif;
   margin: 20px 20px 0 50px;
+  position: relative;
   float: right;
   display: block;
   padding: 15px;
 }
-
-.list-item {
-    width: 1250px;
-
+.add-stage {
+  background-color:lightblue;
+  font: 10px helvetica, sans-serif;
+  width: 300px;
+  padding: 15px;
+  float:right;
+  display:block;
 }
