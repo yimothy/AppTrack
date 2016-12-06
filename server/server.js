@@ -1,6 +1,6 @@
 // const mongodb = require('mongodb');
 // var mongoose = require('mongoose');
-var Users = require('./users/userModel.js');
+var User = require('./users/userModel.js');
 
 require('dotenv').config();
 const express = require('express');
@@ -20,7 +20,7 @@ var app = express();
 // }));
 
 app.use(express.static(path.join(__dirname, '/../node_modules')));
-app.use(express.static(path.join(__dirname, '/../client')));
+app.use(express.static(path.join(__dirname, '/../client/')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
@@ -69,7 +69,28 @@ app.get('/form/:role', function(req,res){
   });
 })
 
-// app.post('/signup', Users.signupUser);
+// app.get('/signup', )
+
+app.post('/signup', function(req, res) {
+	console.log("req.body", req.body)
+	var username = req.body.username;
+	var password = req.body.password;
+
+	User.find({ username: username },
+		function(err, user) {
+			if (!user) {
+				var newUser = new User({
+					username: username,
+					password: password
+				});
+
+				newUser.save();
+			} else {
+				console.log('Account already exists');
+			}
+		}
+	);
+});
 
 
 //set up the server on env.PORT or 8080

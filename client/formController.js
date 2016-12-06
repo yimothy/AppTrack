@@ -1,9 +1,11 @@
 angular.module('Form', [])
 .controller('FormController', function($scope, HttpService){
   $scope.data = {};
+  $scope.data.stages = [];
   $scope.role = {};
   $scope.results = {};
   $scope.job = {};
+  $scope.stageattrs = {};
 
   $scope.submitForm = function() {
 
@@ -32,6 +34,10 @@ angular.module('Form', [])
           $scope.job = resp.data;
         })
 
+    }
+
+    $scope.pushToStages = function() {
+      $scope.data.stages.push($scope.stageattrs)
     }
 
   })
