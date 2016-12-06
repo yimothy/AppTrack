@@ -9,20 +9,13 @@
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js">
 </script>
-
 <!-- MATERIAL IO SCRIPTS BELOW -->
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
 <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-
-
-
 </head>
-
 <body ng-app="AppTracker">
  
-
   <header class="mdl-layout__header mdl-layout__header--waterfall">
     <!-- Top row, always visible -->
     <div class="mdl-layout__header-row">
@@ -50,10 +43,6 @@
       </nav>
     </div>
   </header>
-
-
-
-
   <div id="form" ng-controller="FormController" >
   <form>
   <div id="outreach" class="mdl-textfield mdl-js-textfield">
@@ -69,7 +58,6 @@
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Applied Through" ng-model="data.appliedThrough">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Contact Name" ng-model="data.contactName">
      </div>
-
   <div id="second">
       <input id="field"  class="mdl-textfield__input" type="tel" placeholder="Contact Phone" ng-model="data.contactPhone">
       <input id="field"  class="mdl-textfield__input" type="email" placeholder="Contact Email" ng-model="data.contactEmail">
@@ -80,7 +68,6 @@
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="data.replyReceived">
  </div> 
   </div>
-
   <div id="stage">
       <h1>Stage</h1>
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Scheduled or Completed?" ng-model="data.scheduledStatus">
@@ -89,7 +76,6 @@
       <input id="field"  class="mdl-textfield__input" type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="data.dateOfLastFollowUp">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="data.interviewReplyReceived">
   </div>
-
   <div id="offer"">
       <h1>Offer</h1>
       <input id="field"  class="mdl-textfield__input" type="number" placeholder="Contract Time (in # of Months)" ng-model="data.contractTime">
@@ -101,8 +87,6 @@
       <button ng-click='submitForm()'>Add</button>
   </div>
   </form>
-
-
 </div>
   <div class="search-one" ng-controller="FormController" class="mdl-textfield mdl-js-textfield">
      <form>
@@ -111,20 +95,16 @@
        <button ng-click="getSingleJob()">Get</button>
          <ol>
            <li
-
            ng-repeat="thejob in job | filter:searchText">
            <div class="card">{{thejob.role}}
              <div class="field">Company: {{thejob.companyName}}</div>
              <div class="field">Role: {{thejob.role}}</div>
              <div class="field">Job Description: {{thejob.jobDescription}}</div>
            </div>
-
          </li>
          </ol>
-
      </form>
    </div>
-
     <div id="positions" ng-controller="FormController">
       <form>
         <h1>Get Results real quick</h1>
@@ -162,10 +142,6 @@
         </ul>
       </form>
     </div>
-
-
-
-
 </body>
 <script src="app.js"></script>
 <script src="signup.js"></script>
