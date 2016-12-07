@@ -20,7 +20,7 @@ angular.module('Form', [])
       HttpService.getData()
         .then(function(res){
           console.log("this is res", res)
-        $scope.results = res.data;
+        $scope.results = res.data.reverse();
         })
 
     }
