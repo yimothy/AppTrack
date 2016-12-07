@@ -31,6 +31,10 @@ let url = 'mongodb://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@ds1
 mongoose.connect(url);
 console.log(url)
 
+app.post('/', function(req,res){
+	console.log('hitting slash')
+})
+
 
 app.post('/form', function(req,res){
 // console.log(req.body)
@@ -82,6 +86,13 @@ app.put('/form/:id', function(req, res){
 
 // app.get('/signup', )
 
+// var createSession = function(req, res, newUser) {
+//   return req.session.regenerate(function() {
+//       req.session.user = newUser;
+//       res.redirect('/form');
+//     });
+// }
+
 app.post('/signup', function(req, res) {
 	console.log("req.body", req.body)
 	var username = req.body.username;
@@ -89,13 +100,14 @@ app.post('/signup', function(req, res) {
 
 	User.find({ username: username },
 		function(err, user) {
-			if (!user) {
+			if (user.length === 0) {
 				var newUser = new User({
 					username: username,
 					password: password
 				});
 
 				newUser.save();
+				console.log('getting past save');
 			} else {
 				console.log('Account already exists');
 			}
