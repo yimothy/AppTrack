@@ -56,16 +56,17 @@ angular.module('Form', [])
     }
 
     $scope.save = function($index, edit){
-      console.log('THIS IS THE EDIT+++++++++', edit);
-      $scope.results[$index].companyName = edit.editableCompanyName;
-      $scope.results[$index].role = edit.role;
-      $scope.results[$index].jobDescription = edit.jobDescription;
-      $scope.results[$index].appliedThrough = edit.appliedThrough;
-      $scope.results[$index].contactName = edit.contactName;
+      $scope.edit.editorEnabled=false;
+      // console.log('THIS IS THE EDIT+++++++++', edit);
+      // $scope.results[$index].companyName = edit.editableCompanyName;
+      // $scope.results[$index].role = edit.role;
+      // $scope.results[$index].jobDescription = edit.jobDescription;
+      // $scope.results[$index].appliedThrough = edit.appliedThrough;
+      // $scope.results[$index].contactName = edit.contactName;
 
       console.log("SAVE RESULTS++++++++", $scope.edit.editableCompanyName);
 
-      $scope.edit.editorEnabled=false;
+
     }
 
   })
