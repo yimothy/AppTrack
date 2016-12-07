@@ -1,4 +1,9 @@
 const mongoose = require('mongoose');
+// This file contains the position schema for adding positions (the form on the front page)
+// to the database. Each field in this schema has a corresponding field in the index.html addposition form.
+// Any changes to the form should be reflected in this schema.
+// This is used only with the endpoint '/form' in the server file.
+
 
 const PositionSchema = new mongoose.Schema({
 	startDate: String,

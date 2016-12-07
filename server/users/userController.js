@@ -1,4 +1,6 @@
-const Position = require('./userModel.js');
+const User = require('./userModel.js');
+// this file posts is not currently used
+
 
 module.exports = {
 	signUp: function(req, res) {
