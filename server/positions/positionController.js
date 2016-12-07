@@ -1,5 +1,6 @@
 const Q = require('q');
 const Position = require('./positionModel.js');
+// this file is not used
 
 const findPosition = Q.nbind(Position.findOne, Position);
 const createPosition = Q.nbind(Position.create, Position);
