@@ -133,8 +133,8 @@
        <input id="field"  class="mdl-textfield__input" type="text" placeholder="Search Here" ng-model="searchText">
 
      </div>
-           <ul ng-repeat='result in results | filter:searchText track by $index' ng-model='results'>
-             <div id="list-item"><li class="animated zoomIn" id="card">
+           <ul class="animated zoomIn" id ng-repeat='result in results | filter:searchText track by $index' ng-model='results'>
+             <div id="list-item"><li id="card">
              <div id="card-title"><strong>Open Position</strong><br></div>
                <div id="field"><strong>Company:</strong> <br>{{result.companyName}}</div>
                <div id="field"><strong>Role:</strong> <br>{{result.role}}</div>
@@ -156,7 +156,7 @@
                <div id="field">_ID: {{result._id}}</div> -->
              </li>
 
-             <div id="stage-name" class="animated zoomIn" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
+             <div id="stage-name" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
              <div id="card-title"><strong>Stage {{$index + 1}}</strong><br></div>
                <div id="field"><strong>Interview Scheduled?:</strong><br>{{stage.scheduledStatus}}</div>
                <div id="field"><strong>Date Completed: </strong><br>{{stage.interviewCompletedDate}}</div>
@@ -165,7 +165,7 @@
                <div id="field"><strong>Reply Received: </strong><br>{{stage.interviewReplyReceived}}</div>
              </div>
 
-             <div class="add-stage" class="animated zoomIn">
+             <div class="add-stage">
 
              <div id="card-title"><strong>Add Stage</strong><br></div>
                <br>
