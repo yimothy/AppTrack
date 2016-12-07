@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const PositionSchema = new mongoose.Schema({
-	startDate: Date,
+	startDate: String,
 	companyName: String,
 	role: String,
 	jobDescription: String,
@@ -10,8 +10,8 @@ const PositionSchema = new mongoose.Schema({
 	contactPhone: Number,
 	contactEmail: String,
 	contactType: String,
-	dateApplied: Date,
-	dateOfLastContact: Date,
+	dateApplied: String,
+	dateOfLastContact: String,
 	replyReceived: Boolean,
 	stages: Array,
 	contractTime: Number,
