@@ -82,7 +82,7 @@
       <input id="field"  class="mdl-textfield__input" type="number" placeholder="LinkedIn Connections" ng-model="data.linkedinConnections">
       <input id="field"  class="mdl-textfield__input" type="date" placeholder="Date of Last Direct Contact" ng-model="data.dateOfLastContact">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="data.replyReceived">
-      <br><br>
+      <br>
       <button ng-click='submitForm()' id="addButton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Add</button>
  </div>
 
@@ -154,7 +154,7 @@
              </li>
 
              <div id="stage-name" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
-             <div id="card-title"><strong>Stage</strong><br></div>
+             <div id="card-title"><strong>Stage {{$index + 1}}</strong><br></div>
                <div id="field"><strong>Interview Scheduled?:</strong><br>{{stage.scheduledStatus}}</div>
                <div id="field"><strong>Date Completed: </strong><br>{{stage.interviewCompletedDate}}</div>
                <div id="field"><strong>Primary Interviewer Type: </strong><br>{{stage.interviewerType}}</div>
