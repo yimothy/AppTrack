@@ -127,10 +127,11 @@
    </div> -->
    <div id="positions" ng-controller="FormController" ng-hide="!showDiv">
 
-          <h1 class="animated fadeIn" id="openApps" style="font-family: 'Carme', sans-serif;">Open Applications</h1>
-           <form class="animated zoomIn" novalidate>
-<!--            <button ng-click="getJobData()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Get</button> -->
-           <ul ng-repeat='result in results track by $index' ng-model='results'>
+     <h1 class="animated fadeIn" id="openApps" style="font-family: 'Carme', sans-serif;">Open Applications</h1>
+     <div style="margin-left: 100px"  class="mdl-textfield mdl-js-textfield">Search:
+       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Search Here" ng-model="searchText">
+     </div>
+           <ul ng-repeat='result in results | filter:searchText track by $index' ng-model='results'>
              <div id="list-item"><li class="animated zoomIn" id="card">
              <div id="card-title"><strong>Open Position</strong><br></div>
                <div id="field"><strong>Company:</strong> <br>{{result.companyName}}</div>
@@ -154,7 +155,7 @@
              </li>
 
              <div id="stage-name" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
-             <div id="card-title"><strong>Stage</strong><br></div>
+             <div id="card-title"><strong>Stage {{$index + 1}}</strong><br></div>
                <div id="field"><strong>Interview Scheduled?:</strong><br>{{stage.scheduledStatus}}</div>
                <div id="field"><strong>Date Completed: </strong><br>{{stage.interviewCompletedDate}}</div>
                <div id="field"><strong>Primary Interviewer Type: </strong><br>{{stage.interviewerType}}</div>
@@ -173,7 +174,7 @@
                <div id="field">Date of Last Follow Up<br></div>
                <input id="field" class="mdl-textfield__input" type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp" required>
                <input id="field" class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="stageattrs.interviewReplyReceived" required>
-               <br><br>
+               <br>
                <input type="submit" ng-click="pushToStages($index)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
              </div>
            </div>
