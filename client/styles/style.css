@@ -27,7 +27,7 @@ input {
 }
 
 #addButton {
- 
+
   margin-top: 15px;
 }
 
@@ -81,6 +81,7 @@ col {
   line-break: auto;
   padding: 15px;
   font-size: large;
+  overflow: hidden;
 }
 
 #search-one {
@@ -102,7 +103,7 @@ col {
 
 #list-item {
     width: 90%;
-    height:700px;
+    height:600px;
     display:inline-block;
     margin-top: 30px;
     overflow: scroll;

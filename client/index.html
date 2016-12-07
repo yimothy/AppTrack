@@ -40,20 +40,20 @@
       <!-- Navigation -->
       <nav class="mdl-navigation">
 <div ng-click="toggle = !toggle">
-    <button ng-click="hideDiv = !hideDiv" class="mdl-button--raised mdl-js-ripple-effect">
+    <button ng-click="hideDiv = !hideDiv" class="mdl-button--raised">
         <a ng-click="showDiv = !showDiv" class="mdl-navigation__link" href="">
 <span ng-show="toggle">Add App</span>
     <span ng-hide="toggle">All Apps</span>
         </a></div>
-      
+
     </button>
     <div>
-    <button ng-click="" class="mdl-button--raised mdl-js-ripple-effect">
+    <button ng-click="" class="mdl-button--raised">
         <a ng-click="" class="mdl-navigation__link" href="https://www.google.com/analytics/#?modal_active=none">
           Analytics
         </a>
     </div>
-      
+
     </button> </div>
     </div>
       </nav>
@@ -87,7 +87,7 @@
  </div>
 
   </div>
-  
+
   <!-- <div id="stage">
       <h1>Stage</h1>
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Scheduled or Completed?" ng-model="data.scheduledStatus">
@@ -140,7 +140,7 @@
                <div id="field"><strong>Contact Name:</strong> <br>{{result.contactName}}</div>
                <div id="field"><strong>Contact Phone:</strong> <br>{{result.contactPhone}}</div>
                <div id="field"><strong>Contact Email:</strong> <br>{{result.contactEmail}}</div>
-               <div id="field"><strong>Contact Type:</strong> <br>{{result.contactType}}</div>
+               <!-- <div id="field"><strong>Contact Type:</strong> <br>{{result.contactType}}</div> -->
                <!-- <div id="field">Date Applied: {{result.dateApplied}}</div>
                <div id="field">Last Contacted: {{result.dateOfLastContact}}</div>
                <div id="field">Reply Received: {{result.replyReceived}}</div> -->
@@ -163,12 +163,14 @@
              </div>
 
              <div class="add-stage">
-               
+
              <div id="card-title"><strong>Add Stage</strong><br></div>
                <br>
                <input id="field" class="mdl-textfield__input" type="text" placeholder="Interview Scheduled?" ng-model="stageattrs.scheduledStatus" required>
+               <div id="field">Date of Interview</div>
                <input id="field" class="mdl-textfield__input" type="date" placeholder="Date Completed" ng-model="stageattrs.interviewCompletedDate" required>
                <input id="field" class="mdl-textfield__input" type="text" placeholder="Primary Interviewer Type" ng-model="stageattrs.interviewerType" required>
+               <div id="field">Date of Last Follow Up<br></div>
                <input id="field" class="mdl-textfield__input" type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp" required>
                <input id="field" class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="stageattrs.interviewReplyReceived" required>
                <br><br>
