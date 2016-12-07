@@ -12,10 +12,23 @@ input {
   padding: 30px;
 }
 
+#openApps {
+  padding-top: 20px
+}
 
 #title {
-  padding-top: 60px;
-  font-size: 500%;
+  margin-top: 60px;
+  font-size: 500%;]
+  font-family: 'Pacifico', cursive;
+}
+
+#card-title {
+  font-size:130%;
+}
+
+#addButton {
+ 
+  margin-top: 15px;
 }
 
 #stage {
@@ -48,6 +61,7 @@ col {
 
 #field {
   padding: 10px;
+  font-size: large;
 }
 
 .mdl-textfield__input {
@@ -55,16 +69,18 @@ col {
 }
 
 #card {
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px lightgrey;
   width: 300px;
   height: 400px;
-  background-color:lightblue;
+  background-color:#fffee2;
   font: 10px helvetica, sans-serif;
   margin: 20px 20px 0 20px;
   float: left;
   display: inline-block;
   line-break: auto;
   padding: 15px;
-  font-weight: bold;
+  font-size: large;
 }
 
 #search-one {
@@ -72,13 +88,14 @@ col {
     display: inline-block;
 }
 
-#add-stage {
+.add-stage {
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px lightgrey;
   width: 300px;
-  height: 200px;
-  background-color:lightblue;
-  font: 10px helvetica, sans-serif;
-  margin: 20px 20px 0 50px;
-  float: right;
+  height: 400px;
+  background-color:#e2ffe4;
+  margin: 20px 20px 0 20px;
+  float: left;
   display: block;
   padding: 15px;
 }
@@ -92,10 +109,12 @@ col {
 }
 
 #stage-name {
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px lightgrey;
   width: 300px;
   height: 400px;
-  background-color:lightgreen;
-  font: 10px helvetica, sans-serif;
+  background-color:#ffe2e2;
+  font-size: large;
   margin: 20px 20px 0 20px;
   position: relative;
   float: left;

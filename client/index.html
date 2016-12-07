@@ -10,8 +10,11 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js">
 </script>
 <!-- MATERIAL IO SCRIPTS BELOW -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Carme" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue_grey-red.min.css" />
 <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 </head>
 <body ng-app="AppTracker">
@@ -20,7 +23,7 @@
     <!-- Top row, always visible -->
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span id="title" class="mdl-layout-title">AppTrak</span>
+      <span style="font-family: Pacifico" id="title">AppTrak<img src="Assets/Railway.png"/></span>
       <div class="mdl-layout-spacer"></div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
                   mdl-textfield--floating-label mdl-textfield--align-right">
@@ -36,8 +39,23 @@
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation -->
       <nav class="mdl-navigation">
-        <div ng-click="hideDiv = !hideDiv">
-          <a ng-click="showDiv = !showDiv" class="mdl-navigation__link" href="">All Apps</a></div>
+<div ng-click="toggle = !toggle">
+    <button ng-click="hideDiv = !hideDiv" class="mdl-button--raised mdl-js-ripple-effect">
+        <a ng-click="showDiv = !showDiv" class="mdl-navigation__link" href="">
+<span ng-show="toggle">Add App</span>
+    <span ng-hide="toggle">All Apps</span>
+        </a></div>
+      
+    </button>
+    <div>
+    <button ng-click="" class="mdl-button--raised mdl-js-ripple-effect">
+        <a ng-click="" class="mdl-navigation__link" href="https://www.google.com/analytics/#?modal_active=none">
+          Analytics
+        </a>
+    </div>
+      
+    </button> </div>
+    </div>
       </nav>
     </div>
   </header>
@@ -46,8 +64,8 @@
   <div id="outreach" class="mdl-textfield mdl-js-textfield">
 
 <!--       class="mdl-grid" -->
-      <h1>Outreach</h1>
-    <div id="first">
+      <h1 class="animated fadeIn" style="font-family: 'Carme', sans-serif;">New Application</h1>
+    <div class="animated fadeIn" id="first">
       <input id="field"  class="mdl-textfield__input" type="date" placeholder="Job Search Start Date" ng-model="data.startDate">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Company Name" ng-model=data.companyName>
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Role" ng-model="data.role">
@@ -56,7 +74,7 @@
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Applied Through" ng-model="data.appliedThrough">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Contact Name" ng-model="data.contactName">
      </div>
-  <div id="second">
+  <div class="animated fadeIn" id="second">
       <input id="field"  class="mdl-textfield__input" type="tel" placeholder="Contact Phone" ng-model="data.contactPhone">
       <input id="field"  class="mdl-textfield__input" type="email" placeholder="Contact Email" ng-model="data.contactEmail">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Contact Type" ng-model="data.contactType">
@@ -64,9 +82,12 @@
       <input id="field"  class="mdl-textfield__input" type="number" placeholder="LinkedIn Connections" ng-model="data.linkedinConnections">
       <input id="field"  class="mdl-textfield__input" type="date" placeholder="Date of Last Direct Contact" ng-model="data.dateOfLastContact">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="data.replyReceived">
-    <button ng-click='submitForm()'>Add</button>
+      <br><br>
+      <button ng-click='submitForm()' id="addButton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Add</button>
  </div>
+
   </div>
+  
   <!-- <div id="stage">
       <h1>Stage</h1>
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Scheduled or Completed?" ng-model="data.scheduledStatus">
@@ -105,19 +126,21 @@
      </form>
    </div> -->
    <div id="positions" ng-controller="FormController" ng-hide="!showDiv">
-         <form>
-           <h1>Get Results real quick</h1>
-           <button ng-click="getJobData()">Get</button>
+
+          <h1 class="animated fadeIn" id="openApps" style="font-family: 'Carme', sans-serif;">Open Applications</h1>
+           <form class="animated zoomIn" novalidate>
+<!--            <button ng-click="getJobData()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Get</button> -->
            <ul ng-repeat='result in results track by $index' ng-model='results'>
-             <div id="list-item"><li id="card">
-               <div id="field">Company: {{result.companyName}}</div>
-               <div id="field">Role: {{result.role}}</div>
-               <div id="field">Job Description: {{result.jobDescription}}</div>
-               <div id="field">Applied through: {{result.appliedThrough}}</div>
-               <div id="field">Contact Name: {{result.contactName}}</div>
-               <div id="field">Contact Phone: {{result.contactPhone}}</div>
-               <div id="field">Contact Email: {{result.contactEmail}}</div>
-               <div id="field">Contact Type: {{result.contactType}}</div>
+             <div id="list-item"><li class="animated zoomIn" id="card">
+             <div id="card-title"><strong>Open Position</strong><br></div>
+               <div id="field"><strong>Company:</strong> <br>{{result.companyName}}</div>
+               <div id="field"><strong>Role:</strong> <br>{{result.role}}</div>
+               <div id="field"><strong>Job Description:</strong> <br>{{result.jobDescription}}</div>
+               <div id="field"><strong>Applied through:</strong> <br>{{result.appliedThrough}}</div>
+               <div id="field"><strong>Contact Name:</strong> <br>{{result.contactName}}</div>
+               <div id="field"><strong>Contact Phone:</strong> <br>{{result.contactPhone}}</div>
+               <div id="field"><strong>Contact Email:</strong> <br>{{result.contactEmail}}</div>
+               <div id="field"><strong>Contact Type:</strong> <br>{{result.contactType}}</div>
                <!-- <div id="field">Date Applied: {{result.dateApplied}}</div>
                <div id="field">Last Contacted: {{result.dateOfLastContact}}</div>
                <div id="field">Reply Received: {{result.replyReceived}}</div> -->
@@ -131,27 +154,25 @@
              </li>
 
              <div id="stage-name" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
-               <ul>
-                 <li>
-               <div id="field"><strong>Interview Scheduled?: </strong>{{stage.scheduledStatus}}</div>
-               <div id="field"><strong>Date Completed: </strong>{{stage.interviewCompletedDate}}</div>
-               <div id="field"><strong>Primary Interviewer Type: </strong>{{stage.interviewerType}}</div>
-               <div id="field"><strong>Date of Thank You or Last Follow Up: </strong>{{stage.dateOfLastFollowUp}}</div>
-               <div id="field"><strong>Reply Received: </strong>{{stage.interviewReplyReceived}}</div>
-                 </li>
-               </ul>
+             <div id="card-title"><strong>Stage</strong><br></div>
+               <div id="field"><strong>Interview Scheduled?:</strong><br>{{stage.scheduledStatus}}</div>
+               <div id="field"><strong>Date Completed: </strong><br>{{stage.interviewCompletedDate}}</div>
+               <div id="field"><strong>Primary Interviewer Type: </strong><br>{{stage.interviewerType}}</div>
+               <div id="field"><strong>Date of Thank You or Last Follow Up: </strong><br>{{stage.dateOfLastFollowUp}}</div>
+               <div id="field"><strong>Reply Received: </strong><br>{{stage.interviewReplyReceived}}</div>
              </div>
 
              <div class="add-stage">
-               Add Stage
+               
+             <div id="card-title"><strong>Add Stage</strong><br></div>
                <br>
-               <input type="text" placeholder="Interview Scheduled?" ng-model="stageattrs.scheduledStatus">
-               <input type="date" placeholder="Date Completed" ng-model="stageattrs.interviewCompletedDate">
-               <input type="text" placeholder="Primary Interviewer Type" ng-model="stageattrs.interviewerType">
-               <input type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp">
-               <input type="text" placeholder="Reply Received" ng-model="stageattrs.interviewReplyReceived">
-
-               <input type="submit" ng-click="pushToStages($index)">
+               <input id="field" class="mdl-textfield__input" type="text" placeholder="Interview Scheduled?" ng-model="stageattrs.scheduledStatus" required>
+               <input id="field" class="mdl-textfield__input" type="date" placeholder="Date Completed" ng-model="stageattrs.interviewCompletedDate" required>
+               <input id="field" class="mdl-textfield__input" type="text" placeholder="Primary Interviewer Type" ng-model="stageattrs.interviewerType" required>
+               <input id="field" class="mdl-textfield__input" type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp" required>
+               <input id="field" class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="stageattrs.interviewReplyReceived" required>
+               <br><br>
+               <input type="submit" ng-click="pushToStages($index)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
              </div>
            </div>
             <hr>
