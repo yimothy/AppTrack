@@ -66,7 +66,7 @@
 <!--       class="mdl-grid" -->
       <h1 class="animated fadeIn" style="font-family: 'Carme', sans-serif;">New Application</h1>
     <div class="animated fadeIn" id="first">
-      <input id="field"  class="mdl-textfield__input" type="date" placeholder="Job Search Start Date" ng-model="data.startDate">
+      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Job Search Start Date" ng-model="data.startDate">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Company Name" ng-model=data.companyName>
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Role" ng-model="data.role">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="CoverLetter" ng-model="coverLetter">
@@ -78,14 +78,12 @@
       <input id="field"  class="mdl-textfield__input" type="tel" placeholder="Contact Phone" ng-model="data.contactPhone">
       <input id="field"  class="mdl-textfield__input" type="email" placeholder="Contact Email" ng-model="data.contactEmail">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Contact Type" ng-model="data.contactType">
-      <input id="field"  class="mdl-textfield__input" type="date" placeholder="Date Applied" ng-model="data.dateApplied">
+      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Date Applied" ng-model="data.dateApplied">
       <input id="field"  class="mdl-textfield__input" type="number" placeholder="LinkedIn Connections" ng-model="data.linkedinConnections">
-      <input id="field"  class="mdl-textfield__input" type="date" placeholder="Date of Last Direct Contact" ng-model="data.dateOfLastContact">
+      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Date of Last Direct Contact" ng-model="data.dateOfLastContact">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="data.replyReceived">
       <br><br>
-      <button ng-click='submitForm(); data.startDate=null; data.role=null; coverLetter=null;
-      data.jobDescription=null; data.appliedThrough=null; data.contactName=null; data.contactPhone=null; data.contactEmail=null; data.contactType=null;
-      data.dateApplied=null; data.linkedinConnections=null; data.dateOfLastContact=null; data.replyReceived=null'
+      <button ng-click='submitForm()'
        id="addButton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Add</button>
  </div>
 
