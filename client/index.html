@@ -136,11 +136,53 @@
            <ul class="animated zoomIn" id ng-repeat='result in results | filter:searchText track by $index' ng-model='results'>
              <div id="list-item"><li id="card">
              <div id="card-title"><strong>Open Position</strong><br></div>
-               <div id="field"><strong>Company:</strong> <br>{{result.companyName}}</div>
-               <div id="field"><strong>Role:</strong> <br>{{result.role}}</div>
-               <div id="field"><strong>Job Description:</strong> <br>{{result.jobDescription}}</div>
+            <!-- COMPANY CLICK TO EDIT -->
+            <button ng-click="save($index, edit)" ng-show="edit.editorEnabled">Save</button>
+             <div id="field" ng-click="enableEditor($index)"><strong>Company:</strong><br>
+               <span ng-hide="edit.editorEnabled">{{result.companyName}}</span>
+             </div>
+             <div ng-show="edit.editorEnabled">
+               <input ng-model="edit.editableCompanyName" ng-show="edit.editorEnabled" id="field"
+               class="mdl-textfield__input" type="text">
+             </div>
+             <!-- ROLE CLICK TO EDIT -->
+             <div id="field" ng-click="enableEditor($index)"><strong>Role:</strong><br>
+               <span ng-hide="edit.editorEnabled">{{result.role}}</span>
+             </div>
+             <div ng-show="edit.editorEnabled">
+               <input ng-model="edit.role" ng-show="edit.editorEnabled" id="field"
+               class="mdl-textfield__input" type="text">
+             </div>
+             <!-- JOB DESCRIPTION CLICK TO EDIT -->
+             <div id="field" ng-click="enableEditor($index)"><strong>Job Description:</strong><br>
+               <span ng-hide="edit.editorEnabled">{{result.jobDescription}}</span>
+             </div>
+             <div ng-show="edit.editorEnabled">
+               <input ng-model="edit.jobDescription" ng-show="edit.editorEnabled" id="field"
+               class="mdl-textfield__input" type="text">
+             </div>
+             <!-- APPLIED THROUGH CLICK TO EDIT -->
+             <div id="field" ng-click="enableEditor($index)"><strong>Applied Through:</strong><br>
+               <span ng-hide="edit.editorEnabled">{{result.appliedThrough}}</span>
+             </div>
+             <div ng-show="edit.editorEnabled">
+               <input ng-model="edit.appliedThrough" ng-show="edit.editorEnabled" id="field"
+               class="mdl-textfield__input" type="text">
+             </div>
+             <!-- CONTACT NAME CLICK TO EDIT -->
+             <div id="field" ng-click="enableEditor($index)"><strong>Contact Name:</strong><br>
+               <span ng-hide="edit.editorEnabled">{{result.contactName}}</span>
+             </div>
+             <div ng-show="edit.editorEnabled">
+               <input ng-model="edit.contactName" ng-show="edit.editorEnabled" id="field"
+               class="mdl-textfield__input" type="text">
+             </div>
+
+
+               <!-- <div id="field"><strong>Job Description:</strong> <br>{{result.jobDescription}}</div>
                <div id="field"><strong>Applied through:</strong> <br>{{result.appliedThrough}}</div>
-               <div id="field"><strong>Contact Name:</strong> <br>{{result.contactName}}</div>
+               <div id="field"><strong>Contact Name:</strong> <br>{{result.contactName}}</div> -->
+
                <!-- <div id="field"><strong>Contact Phone:</strong> <br>{{result.contactPhone}}</div>
                <div id="field"><strong>Contact Email:</strong> <br>{{result.contactEmail}}</div> -->
                <!-- <div id="field"><strong>Contact Type:</strong> <br>{{result.contactType}}</div> -->
