@@ -15,7 +15,7 @@
 <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 </head>
 <body ng-app="AppTracker">
- 
+
   <header class="mdl-layout__header mdl-layout__header--waterfall">
     <!-- Top row, always visible -->
     <div class="mdl-layout__header-row">
@@ -28,7 +28,7 @@
                for="waterfall-exp">
           <i class="material-icons">search</i>
         </label>
-      
+
       </div>
     </div>
     <!-- Bottom row, not visible on scroll -->
@@ -36,20 +36,18 @@
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation -->
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
+        <div ng-click="hideDiv = !hideDiv">
+          <a ng-click="showDiv = !showDiv" class="mdl-navigation__link" href="">All Apps</a></div>
       </nav>
     </div>
   </header>
-  <div id="form" ng-controller="FormController" >
+  <div id="form" ng-controller="FormController" ng-show="!hideDiv">
   <form>
   <div id="outreach" class="mdl-textfield mdl-js-textfield">
-    
+
 <!--       class="mdl-grid" -->
       <h1>Outreach</h1>
-    <div id="first"> 
+    <div id="first">
       <input id="field"  class="mdl-textfield__input" type="date" placeholder="Job Search Start Date" ng-model="data.startDate">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Company Name" ng-model=data.companyName>
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Role" ng-model="data.role">
@@ -66,17 +64,18 @@
       <input id="field"  class="mdl-textfield__input" type="number" placeholder="LinkedIn Connections" ng-model="data.linkedinConnections">
       <input id="field"  class="mdl-textfield__input" type="date" placeholder="Date of Last Direct Contact" ng-model="data.dateOfLastContact">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="data.replyReceived">
- </div> 
+    <button ng-click='submitForm()'>Add</button>
+ </div>
   </div>
-  <div id="stage">
+  <!-- <div id="stage">
       <h1>Stage</h1>
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Scheduled or Completed?" ng-model="data.scheduledStatus">
       <input id="field"  class="mdl-textfield__input" type="date" placeholder="Date Completed" ng-model="data.interviewCompletedDate">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Primary Interviewer Type" ng-model="data.interviewerType">
       <input id="field"  class="mdl-textfield__input" type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="data.dateOfLastFollowUp">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="data.interviewReplyReceived">
-  </div>
-  <div id="offer"">
+  </div> -->
+  <!-- <div id="offer"">
       <h1>Offer</h1>
       <input id="field"  class="mdl-textfield__input" type="number" placeholder="Contract Time (in # of Months)" ng-model="data.contractTime">
       <input id="field"  class="mdl-textfield__input" type="number" placeholder="Initial Comp ($)" ng-model="data.initialComp">
@@ -84,11 +83,11 @@
       <input id="field"  class="mdl-textfield__input" type="number" placeholder="Final Comp ($)" ng-model="data.finalComp">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Accepted or Rejected?" ng-model="data.acceptReject">
       <hr>
-      <button ng-click='submitForm()'>Add</button>
-  </div>
+
+  </div> -->
   </form>
 </div>
-  <div class="search-one" ng-controller="FormController" class="mdl-textfield mdl-js-textfield">
+  <!-- <div class="search-one" ng-controller="FormController" class="mdl-textfield mdl-js-textfield" ng-hide="!showDiv">
      <form>
        <h1>Get One Job</h1>
        <input id="field"  type="text" placeholder='Search Company' ng-model="searchText">
@@ -96,52 +95,69 @@
          <ol>
            <li
            ng-repeat="thejob in job | filter:searchText">
-           <div class="card">{{thejob.role}}
-             <div class="field">Company: {{thejob.companyName}}</div>
-             <div class="field">Role: {{thejob.role}}</div>
-             <div class="field">Job Description: {{thejob.jobDescription}}</div>
+           <div id="card">{{thejob.role}}
+             <div id="field">Company: {{thejob.companyName}}</div>
+             <div id="field">Role: {{thejob.role}}</div>
+             <div id="field">Job Description: {{thejob.jobDescription}}</div>
            </div>
          </li>
          </ol>
      </form>
-   </div>
-    <div id="positions" ng-controller="FormController">
-      <form>
-        <h1>Get Results real quick</h1>
-        <button ng-click="getJobData()">Get</button>
-        <ul ng-repeat='result in results track by $index' ng-model='results'>
-          <div class="list-item"><li class="card">
-            <div class="field">Company: {{result.companyName}}</div>
-            <div class="field">Role: {{result.role}}</div>
-            <div class="field">Job Description: {{result.jobDescription}}</div>
-            <div class="field">Applied through: {{result.appliedThrough}}</div>
-            <div class="field">Contact Name: {{result.contactName}}</div>
-            <div class="field">Contact Phone: {{result.contactPhone}}</div>
-            <div class="field">Contact Email: {{result.contactEmail}}</div>
-            <div class="field">Contact Type: {{result.contactType}}</div>
-            <div class="field">Date Applied: {{result.dateApplied}}</div>
-            <div class="field">Last Contacted: {{result.dateOfLastContact}}</div>
-            <div class="field">Reply Received: {{result.replyReceived}}</div>
-            <!-- <div class="field">Stages: {{result.stages}}</div> -->
-            <div class="field">Contract Duration: {{result.contractTime}}</div>
-            <div class="field">Intial Compensation: {{result.initialComp}}</div>
-            <div class="field">Negotiated?: {{result.negotiated}}</div>
-            <div class="field">Final Comp?: {{result.finalComp}}</div>
-            <div class="field">Accept/Reject?: {{result.acceptReject}}</div>
-          </li>
-          <div class="add-stage" ng-model="stageattrs" ng-click="pushToStages()">Add Stage
-            <input type="text" placeholder="Scheduled or Completed?" ng-model="stageattrs.scheduledStatus">
-            <input type="number" placeholder="index" ng-model="stageattrs.index">
-            <input type="date" placeholder="Date Completed" ng-model="stageattrs.interviewCompletedDate">
-            <input type="text" placeholder="Primary Interviewer Type" ng-model="stageattrs.interviewerType">
-            <input type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp">
-            <input type="text" placeholder="Reply Received" ng-model="stageattrs.interviewReplyReceived">
-            <input type="submit">
-          </div>
-        </div>
-        </ul>
-      </form>
-    </div>
+   </div> -->
+   <div id="positions" ng-controller="FormController" ng-hide="!showDiv">
+         <form>
+           <h1>Get Results real quick</h1>
+           <button ng-click="getJobData()">Get</button>
+           <ul ng-repeat='result in results track by $index' ng-model='results'>
+             <div id="list-item"><li id="card">
+               <div id="field">Company: {{result.companyName}}</div>
+               <div id="field">Role: {{result.role}}</div>
+               <div id="field">Job Description: {{result.jobDescription}}</div>
+               <div id="field">Applied through: {{result.appliedThrough}}</div>
+               <div id="field">Contact Name: {{result.contactName}}</div>
+               <div id="field">Contact Phone: {{result.contactPhone}}</div>
+               <div id="field">Contact Email: {{result.contactEmail}}</div>
+               <div id="field">Contact Type: {{result.contactType}}</div>
+               <!-- <div id="field">Date Applied: {{result.dateApplied}}</div>
+               <div id="field">Last Contacted: {{result.dateOfLastContact}}</div>
+               <div id="field">Reply Received: {{result.replyReceived}}</div> -->
+               <!-- <div id="field">Stages: {{result.stages}}</div> -->
+               <!-- <div id="field">Contract Duration: {{result.contractTime}}</div>
+               <div id="field">Intial Compensation: {{result.initialComp}}</div>
+               <div id="field">Negotiated?: {{result.negotiated}}</div>
+               <div id="field">Final Comp?: {{result.finalComp}}</div>
+               <div id="field">Accept/Reject?: {{result.acceptReject}}</div>
+               <div id="field">_ID: {{result._id}}</div> -->
+             </li>
+
+             <div id="stage-name" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
+               <ul>
+                 <li>
+               <div id="field"><strong>Interview Scheduled?: </strong>{{stage.scheduledStatus}}</div>
+               <div id="field"><strong>Date Completed: </strong>{{stage.interviewCompletedDate}}</div>
+               <div id="field"><strong>Primary Interviewer Type: </strong>{{stage.interviewerType}}</div>
+               <div id="field"><strong>Date of Thank You or Last Follow Up: </strong>{{stage.dateOfLastFollowUp}}</div>
+               <div id="field"><strong>Reply Received: </strong>{{stage.interviewReplyReceived}}</div>
+                 </li>
+               </ul>
+             </div>
+
+             <div class="add-stage">
+               Add Stage
+               <br>
+               <input type="text" placeholder="Interview Scheduled?" ng-model="stageattrs.scheduledStatus">
+               <input type="date" placeholder="Date Completed" ng-model="stageattrs.interviewCompletedDate">
+               <input type="text" placeholder="Primary Interviewer Type" ng-model="stageattrs.interviewerType">
+               <input type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp">
+               <input type="text" placeholder="Reply Received" ng-model="stageattrs.interviewReplyReceived">
+
+               <input type="submit" ng-click="pushToStages($index)">
+             </div>
+           </div>
+            <hr>
+           </ul>
+         </form>
+       </div>
 </body>
 <script src="app.js"></script>
 <script src="signup.js"></script>

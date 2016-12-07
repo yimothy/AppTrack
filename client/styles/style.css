@@ -47,32 +47,32 @@ col {
 }
 
 #field {
-  padding: 20px;
+  padding: 10px;
 }
 
 .mdl-textfield__input {
   padding: 15px;
 }
 
-.card {
-  width: 700px;
-  height: 350px;
+#card {
+  width: 300px;
+  height: 400px;
   background-color:lightblue;
   font: 10px helvetica, sans-serif;
-  margin: 20px 20px 0 50px;
-  /*float: left;*/
+  margin: 20px 20px 0 20px;
+  float: left;
   display: inline-block;
   line-break: auto;
   padding: 15px;
   font-weight: bold;
 }
 
-.search-one {
- 
+#search-one {
+
     display: inline-block;
 }
 
-.add-stage {
+#add-stage {
   width: 300px;
   height: 200px;
   background-color:lightblue;
@@ -83,7 +83,31 @@ col {
   padding: 15px;
 }
 
-.list-item {
-    width: 1250px;
+#list-item {
+    width: 90%;
+    height:700px;
+    display:inline-block;
+    margin-top: 30px;
+    overflow: scroll;
+}
 
+#stage-name {
+  width: 300px;
+  height: 400px;
+  background-color:lightgreen;
+  font: 10px helvetica, sans-serif;
+  margin: 20px 20px 0 20px;
+  position: relative;
+  float: left;
+  display: block;
+  padding: 15px;
+}
+
+input {
+  height: 20px;
+}
+
+#positions {
+  margin:auto;
+  overflow:scroll;
 }
