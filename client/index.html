@@ -83,7 +83,10 @@
       <input id="field"  class="mdl-textfield__input" type="date" placeholder="Date of Last Direct Contact" ng-model="data.dateOfLastContact">
       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="data.replyReceived">
       <br><br>
-      <button ng-click='submitForm()' id="addButton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Add</button>
+      <button ng-click='submitForm(); data.startDate=null; data.role=null; coverLetter=null;
+      data.jobDescription=null; data.appliedThrough=null; data.contactName=null; data.contactPhone=null; data.contactEmail=null; data.contactType=null;
+      data.dateApplied=null; data.linkedinConnections=null; data.dateOfLastContact=null; data.replyReceived=null'
+       id="addButton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Add</button>
  </div>
 
   </div>
@@ -130,6 +133,7 @@
      <h1 class="animated fadeIn" id="openApps" style="font-family: 'Carme', sans-serif;">Open Applications</h1>
      <div style="margin-left: 100px"  class="mdl-textfield mdl-js-textfield">Search:
        <input id="field"  class="mdl-textfield__input" type="text" placeholder="Search Here" ng-model="searchText">
+
      </div>
            <ul ng-repeat='result in results | filter:searchText track by $index' ng-model='results'>
              <div id="list-item"><li class="animated zoomIn" id="card">
@@ -139,8 +143,8 @@
                <div id="field"><strong>Job Description:</strong> <br>{{result.jobDescription}}</div>
                <div id="field"><strong>Applied through:</strong> <br>{{result.appliedThrough}}</div>
                <div id="field"><strong>Contact Name:</strong> <br>{{result.contactName}}</div>
-               <div id="field"><strong>Contact Phone:</strong> <br>{{result.contactPhone}}</div>
-               <div id="field"><strong>Contact Email:</strong> <br>{{result.contactEmail}}</div>
+               <!-- <div id="field"><strong>Contact Phone:</strong> <br>{{result.contactPhone}}</div>
+               <div id="field"><strong>Contact Email:</strong> <br>{{result.contactEmail}}</div> -->
                <!-- <div id="field"><strong>Contact Type:</strong> <br>{{result.contactType}}</div> -->
                <!-- <div id="field">Date Applied: {{result.dateApplied}}</div>
                <div id="field">Last Contacted: {{result.dateOfLastContact}}</div>
@@ -154,7 +158,7 @@
                <div id="field">_ID: {{result._id}}</div> -->
              </li>
 
-             <div id="stage-name" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
+             <div id="stage-name" class="animated zoomIn" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
              <div id="card-title"><strong>Stage {{$index + 1}}</strong><br></div>
                <div id="field"><strong>Interview Scheduled?:</strong><br>{{stage.scheduledStatus}}</div>
                <div id="field"><strong>Date Completed: </strong><br>{{stage.interviewCompletedDate}}</div>
@@ -163,7 +167,7 @@
                <div id="field"><strong>Reply Received: </strong><br>{{stage.interviewReplyReceived}}</div>
              </div>
 
-             <div class="add-stage">
+             <div class="add-stage" class="animated zoomIn">
 
              <div id="card-title"><strong>Add Stage</strong><br></div>
                <br>
