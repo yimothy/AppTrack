@@ -140,7 +140,7 @@
                <div id="field"><strong>Contact Name:</strong> <br>{{result.contactName}}</div>
                <div id="field"><strong>Contact Phone:</strong> <br>{{result.contactPhone}}</div>
                <div id="field"><strong>Contact Email:</strong> <br>{{result.contactEmail}}</div>
-               <div id="field"><strong>Contact Type:</strong> <br>{{result.contactType}}</div>
+               <!-- <div id="field"><strong>Contact Type:</strong> <br>{{result.contactType}}</div> -->
                <!-- <div id="field">Date Applied: {{result.dateApplied}}</div>
                <div id="field">Last Contacted: {{result.dateOfLastContact}}</div>
                <div id="field">Reply Received: {{result.replyReceived}}</div> -->
@@ -167,8 +167,10 @@
              <div id="card-title"><strong>Add Stage</strong><br></div>
                <br>
                <input id="field" class="mdl-textfield__input" type="text" placeholder="Interview Scheduled?" ng-model="stageattrs.scheduledStatus" required>
+               <div id="field">Date of Interview</div>
                <input id="field" class="mdl-textfield__input" type="date" placeholder="Date Completed" ng-model="stageattrs.interviewCompletedDate" required>
                <input id="field" class="mdl-textfield__input" type="text" placeholder="Primary Interviewer Type" ng-model="stageattrs.interviewerType" required>
+               <div id="field">Date of Last Follow Up<br></div>
                <input id="field" class="mdl-textfield__input" type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp" required>
                <input id="field" class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="stageattrs.interviewReplyReceived" required>
                <br><br>
