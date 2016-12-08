@@ -5,7 +5,7 @@ angular.module('Form', [])
   $scope.results = {};
   $scope.job = {};
   $scope.stageattrs = {};
-
+  $scope.edit = {};
   var addStage =
 
   $scope.submitForm = function() {
@@ -45,6 +45,28 @@ angular.module('Form', [])
         $scope.stageattrs = {};
         $scope.getJobData();
       })
+    }
+    $scope.enableEditor = function($index) {
+      $scope.edit.editorEnabled = true;
+      $scope.edit.editableCompanyName = $scope.results[$index].companyName;
+      $scope.edit.role = $scope.results[$index].role;
+      $scope.edit.jobDescription = $scope.results[$index].jobDescription;
+      $scope.edit.appliedThrough = $scope.results[$index].appliedThrough;
+      $scope.edit.contactName = $scope.results[$index].contactName;
+    }
+
+    $scope.save = function($index, edit){
+      $scope.edit.editorEnabled=false;
+      // console.log('THIS IS THE EDIT+++++++++', edit);
+      // $scope.results[$index].companyName = edit.editableCompanyName;
+      // $scope.results[$index].role = edit.role;
+      // $scope.results[$index].jobDescription = edit.jobDescription;
+      // $scope.results[$index].appliedThrough = edit.appliedThrough;
+      // $scope.results[$index].contactName = edit.contactName;
+
+      console.log("SAVE RESULTS++++++++", $scope.edit.editableCompanyName);
+
+
     }
 
   })
