@@ -142,7 +142,7 @@
                <span ng-hide="edit.editorEnabled">{{result.companyName}}</span>
              </div>
              <div ng-show="edit.editorEnabled">
-               <input ng-model="edit.editableCompanyName" ng-show="edit.editorEnabled" id="field"
+               <input ng-model="edit.companyName" ng-show="edit.editorEnabled" id="field"
                class="mdl-textfield__input" type="text">
              </div>
              <!-- ROLE CLICK TO EDIT -->
@@ -200,19 +200,20 @@
 
              <div id="stage-name" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
              <div id="card-title"><strong>Stage {{$index + 1}}</strong><br></div>
-               <div id="field"><strong>Interview Scheduled?:</strong><br>{{stage.scheduledStatus}}</div>
-               <div id="field"><strong>Date Completed: </strong><br>{{stage.interviewCompletedDate}}</div>
-               <div id="field"><strong>Primary Interviewer Type: </strong><br>{{stage.interviewerType}}</div>
-               <div id="field"><strong>Date of Thank You or Last Follow Up: </strong><br>{{stage.dateOfLastFollowUp}}</div>
-               <div id="field"><strong>Reply Received: </strong><br>{{stage.interviewReplyReceived}}</div>
+               <div id="field"><strong>Interview Type:</strong><br>{{stage.interviewType}}</div>
+               <div id="field"><strong>Date:</strong><br>{{stage.interviewCompletedDate}}</div>
+               <div id="field"><strong>Primary Interviewer Type:</strong><br>{{stage.interviewerType}}</div>
+               <div id="field"><strong>Last Follow Up Date:</strong><br>{{stage.dateOfLastFollowUp}}</div>
+               <div id="field"><strong>Reply Received:</strong><br>{{stage.interviewReplyReceived}}</div>
              </div>
 
              <div class="add-stage">
 
              <div id="card-title"><strong>Add Stage</strong><br></div>
                <br>
-               <input id="field" class="mdl-textfield__input" type="text" placeholder="Interview Scheduled?" ng-model="stageattrs.scheduledStatus" required>
-               <div id="field">Date of Interview</div>
+               <select>
+               <option ng-repeat="x in stageSelect track by $index" ng-model="stageattrs.interviewType">{{x}}</option>
+               </select>
                <input id="field" class="mdl-textfield__input" type="date" placeholder="Date Completed" ng-model="stageattrs.interviewCompletedDate" required>
                <input id="field" class="mdl-textfield__input" type="text" placeholder="Primary Interviewer Type" ng-model="stageattrs.interviewerType" required>
                <div id="field">Date of Last Follow Up<br></div>
