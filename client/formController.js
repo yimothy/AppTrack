@@ -6,7 +6,7 @@ angular.module('Form', [])
   $scope.job = {};
   $scope.stageattrs = {};
   $scope.edit = {};
-  var addStage =
+  $scope.stageSelect = ['Select Stage Type', 'Phone Interview', 'In-Person Interview(One)', 'Whiteboarding Session', 'In-Person Interview(Group)', 'Full-Day Interview Session','Coding Challenge']
 
   $scope.submitForm = function() {
 
