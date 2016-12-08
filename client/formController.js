@@ -38,7 +38,7 @@ angular.module('Form', [])
     }
 
     $scope.pushToStages = function($index) {
-      console.log("$index within push to stages", $index)
+      console.log("$scope.stageattrs within push to stages", $scope.stageattrs)
       HttpService.putStageData({"id": $scope.results[$index]._id, "stages": $scope.stageattrs})
       .then(function(resp) {
         console.log("this is the resp", resp);
